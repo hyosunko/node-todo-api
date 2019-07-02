@@ -35,4 +35,4 @@ todoSchema.statics.all = function(callback) {
 
 const Todo = mongoose.model("Todo", todoSchema);
 
-module.export = Todo;
+module.exports = Todo;
