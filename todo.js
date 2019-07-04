@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 mongoose.set("useFindAndModify", false);
 
-mongoose.connect("mongodb://localhost:27017", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost:27017", { useNewUrlParser: false });
 
 const db = mongoose.connection;
 
