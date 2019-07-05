@@ -23,6 +23,13 @@ router
     });
   });
 
+router.route("/todos/:todo_id").put((req, res) => {
+  Todo.updateDocument(req.params.todo_id, req.body, function(data) {
+    console.log(`Todo id ${data.id} updated!`);
+    res.json(data);
+  });
+});
+
 app.use(bodyParser.json());
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
