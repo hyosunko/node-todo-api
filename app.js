@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const router = express.Router();
 const bodyParser = require("body-parser");
 
@@ -42,16 +42,6 @@ router.route("/todos/:todo_id").put((req, res) => {
     console.log(`Todo id ${data.id} updated!`);
     res.json(data);
   });
-});
-
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.header("Access-Control-Allow-Methods", "PUT, POST, GET, OPTIONS");
-  next();
 });
 
 app.use("/", router);
